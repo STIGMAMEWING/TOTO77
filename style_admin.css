@@ -1,0 +1,107 @@
+/* style_admin.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #1a1a2e; /* Dark Blue/Purple */
+    color: white;
+}
+
+/* Admin Header & Navbar */
+.admin-header {
+    background-color: #0f0f29;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #00aaff;
+}
+.admin-header h1 {
+    margin: 0;
+    color: #00aaff;
+    font-size: 1.5em;
+}
+.admin-header a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: #00aaff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Admin Dashboard Layout */
+.admin-dashboard {
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    background-color: #16213e;
+    min-height: calc(100vh - 58px); /* Mengkompensasi tinggi header */
+    padding: 20px 0;
+}
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #0f0f29;
+}
+.sidebar a:hover {
+    background-color: #263859;
+}
+.content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+/* Content Box */
+.content-box {
+    background-color: #0f0f29;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.content-box h2 {
+    color: #00aaff;
+    border-bottom: 2px solid #00aaff;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Table Styling */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+.user-table th {
+    background-color: #16213e;
+}
+.user-table tr:hover {
+    background-color: #1a1a2e;
+}
+
+/* Form Styling (Admin) */
+.form-group input, .form-group select {
+    width: calc(100% - 22px); 
+    padding: 10px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.btn-action {
+    padding: 10px 15px;
+    background-color: #00aaff;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
