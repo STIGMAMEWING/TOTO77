@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+    <title>Dashboard User - Toto77</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid #e94560;
+        }
+        
+        .header-info {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        #totalSaldo {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        .dashboard-auth-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .header-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .header-link:hover {
+            background-color: #e94560;
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation Bar */
+        .header-nav-toto77 {
+            background: linear-gradient(90deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar-nav-toto77 {
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+            padding: 5px 0;
+        }
+        
+        .nav-link-toto77 {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .nav-link-toto77:hover, .nav-link-toto77.active {
+            background-color: #e94560;
+            transform: translateY(-2px);
+        }
+        
+        .hot-link {
+            color: #ff6b6b;
+        }
+        
+        .event-link {
+            background-color: #ffd700;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 30px 0;
+        }
+        
+        .main-content-header-dashboard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .welcome-banner {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .jackpot-display-container {
+            background: linear-gradient(135deg, #ffd700, #ff6b00);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .jackpot-ticker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .gold-trophy {
+            color: #fff;
+            font-size: 24px;
+        }
+        
+        /* Dashboard Menu Bar */
+        .dashboard-menu-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-dashboard-action {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+        
+        .deposit {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+        }
+        
+        .withdraw {
+            background: linear-gradient(135deg, #2196F3, #0D47A1);
+            color: white;
+        }
+        
+        .claim {
+            background: linear-gradient(135deg, #FF9800, #E65100);
+            color: white;
+        }
+        
+        .cashback {
+            background: linear-gradient(135deg, #9C27B0, #6A1B9A);
+            color: white;
+        }
+        
+        .btn-dashboard-action:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #e94560;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Profile Tab Styles */
+        .profile-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .profile-sidebar {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-main {
+            flex: 2;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-avatar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-avatar img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #ffd700;
+            object-fit: cover;
+        }
+        
+        .profile-info {
+            text-align: center;
+        }
+        
+        .profile-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffd700;
+        }
+        
+        .profile-level {
+            background: linear-gradient(135deg, #e94560, #b0304a);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .profile-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .profile-section {
+            margin-bottom: 25px;
+        }
+        
+        .profile-section h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e94560;
+            padding-bottom: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn-profile {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-profile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Form Styles */
+        .deposit-form-simulasi, .withdraw-form-simulasi {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .deposit-banks, .withdraw-banks {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .bank-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .bank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .bank-card img {
+            max-width: 150px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .deposit-form-box, .withdraw-form-box {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .deposit-form-box h3, .withdraw-form-box h3 {
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-align: center;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        input[type="number"], input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .input-addon {
+            background: #e94560;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 0 5px 5px 0;
+            font-weight: bold;
+        }
+        
+        .btn-submit-inline {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit-inline:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* QRIS Display */
+        .qris-display {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .qris-display.active {
+            display: block;
+        }
+        
+        .qris-code {
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            margin: 0 auto 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #333;
+            overflow: hidden;
+        }
+        
+        .qris-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .qris-amount {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .qris-instruction {
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .timer {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        /* Info Box */
+        .info-box-dashboard {
+            background: rgba(15, 52, 96, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #e94560;
+        }
+        
+        .info-box-dashboard h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        /* Provider Section */
+        .section-title {
+            text-align: center;
+            margin: 30px 0 20px;
+            color: #ffd700;
+            font-size: 24px;
+        }
+        
+        .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .provider-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .provider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .provider-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+        }
+        
+        /* Game Categories */
+        .game-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .category-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(233, 69, 96, 0.2);
+        }
+        
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        .category-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .category-desc {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Popular Games */
+        .popular-games {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .game-info {
+            padding: 10px;
+        }
+        
+        .game-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .game-provider {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(233, 69, 96, 0.9);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .game-card:hover .play-btn {
+            opacity: 1;
+        }
+        
+        /* Search and Filter */
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        
+        .filter-select {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            min-width: 150px;
+        }
+        
+        /* Logout Modal */
+        .logout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logout-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .logout-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #e94560;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .logout-icon {
+            font-size: 60px;
+            color: #e94560;
+            margin-bottom: 20px;
+        }
+        
+        .logout-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        
+        .btn-logout {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .btn-confirm {
+            background: linear-gradient(135deg, #e94560, #b0304a);
+            color: white;
+        }
+        
+        .btn-cancel {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+        
+        .btn-logout:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .main-content-header-dashboard {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .deposit-form-simulasi, .withdraw-form-simulasi {
+                flex-direction: column;
+            }
+            
+            .navbar-nav-toto77 {
+                justify-content: flex-start;
+            }
+            
+            .game-categories {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .search-filter {
+                flex-direction: column;
+            }
+            
+            .logout-buttons {
+                flex-direction: column;
+            }
+            
+            .profile-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body id="dashboardBody">
+    <!-- Logout Confirmation Modal -->
+    <div class="logout-modal" id="logoutModal">
+        <div class="logout-content">
+            <div class="logout-icon">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h2>Konfirmasi Logout</h2>
+            <p>Apakah Anda yakin ingin keluar dari akun Anda?</p>
+            <div class="logout-buttons">
+                <button class="btn-logout btn-confirm" id="confirmLogout">Ya, Logout</button>
+                <button class="btn-logout btn-cancel" id="cancelLogout">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <span class="header-info">Hi, <span id="currentUsername">Player</span> | TOTAL SALDO: <span id="totalSaldo">IDR 0</span></span>
+
+        <div class="dashboard-auth-links">
+            <a href="#" class="header-link memo-btn" data-tab="memo">Memo</a>
+            <a href="#" class="header-link profil-btn" data-tab="profil">Profil</a>
+            <a href="#" class="header-link transaksi-btn" data-tab="transaksi">Transaksi</a>
+            <a href="#" class="header-link bonus-btn" data-tab="bonus">Bonus</a>
+            <a href="#" class="header-link keluar-btn" id="logoutBtn">Keluar</a>
+        </div>
+    </div>
+
+    <div class="header-nav-toto77">
+        <div class="container">
+            <nav class="navbar-nav-toto77" aria-label="Main Navigation">
+                <a class="nav-link-toto77 active" data-tab="games">🏠 Beranda</a>
+                <span class="nav-link-toto77 static-link hot-link" data-tab="slot">
+                    <i class="fas fa-dice" aria-hidden="true"></i> Slot
+                </span>
+                <span class="nav-link-toto77 static-link" data-tab="live-game">
+                    <i class="fas fa-fire" aria-hidden="true"></i> Live Game
+                </span>
+                <span class="nav-link-toto77 static-link" data-tab="casino">Casino</span>
+                <span class="nav-link-toto77 static-link" data-tab="sportsbook">Sportsbook</span>
+                <span class="nav-link-toto77 static-link" data-tab="lottery">Lottery</span>
+                <span class="nav-link-toto77 static-link" data-tab="poker">Poker</span>
+                <span class="nav-link-toto77 static-link" data-tab="arcade">Arcade</span>
+                <span class="nav-link-toto77 event-link" data-tab="promosi">
+                    <i class="fas fa-bullhorn" aria-hidden="true"></i> PROMOSI
+                </span>
+            </nav>
+        </div>
+    </div>
+
+    <main class="bg-roulette">
+        <div class="container">
+            <header class="main-content-header-dashboard">
+                <img
+                    src="image/bannertoto77.jpg"
+                    alt="Selamat Datang"
+                    class="welcome-banner"
+                />
+                <div class="jackpot-display-container" aria-live="polite" role="region" aria-label="Jackpot Information">
+                    <div class="jackpot-ticker">
+                        <span class="ticker-label">JACKPOT</span>
+                        <i class="fas fa-trophy gold-trophy" aria-hidden="true"></i>
+                        <span class="ticker-amount">IDR 43,947,379,855</span>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="dashboard-menu-bar" aria-label="Dashboard Actions">
+                <button class="btn-dashboard-action deposit" id="openDepositBtn" aria-label="Tambah Dana">
+                    <i class="fas fa-wallet" aria-hidden="true"></i> Tambah Dana
+                </button>
+                <button class="btn-dashboard-action withdraw" id="openWithdrawBtn" aria-label="Tarik Dana">
+                    <i class="fas fa-hand-holding-usd" aria-hidden="true"></i> Tarik Dana
+                </button>
+                <button class="btn-dashboard-action claim" aria-label="Klaim Promo">
+                    <i class="fas fa-check-circle" aria-hidden="true"></i> Klaim Promo
+                </button>
+                <button class="btn-dashboard-action cashback" aria-label="Cashback">
+                    <i class="fas fa-money-bill-wave" aria-hidden="true"></i> Cashback
+                </button>
+            </nav>
+
+            <!-- Beranda Tab (Default setelah login) -->
+            <div class="tab-content active" id="games-tab">
+                <h2>Selamat Datang di Toto77!</h2>
+                <p style="text-align: center; margin-bottom: 25px;">Pilih kategori permainan favorit Anda dan mulailah petualangan berhadiah!</p>
+                
+                <h3 class="section-title">KATEGORI PERMAINAN</h3>
+                <div class="game-categories">
+                    <div class="category-card" data-tab="slot">
+                        <div class="category-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <div class="category-title">Slot Games</div>
+                        <div class="category-desc">Ratusan mesin slot dengan jackpot menggiurkan</div>
+                    </div>
+                    
+                    <div class="category-card" data-tab="live-game">
+                        <div class="category-icon">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <div class="category-title">Live Casino</div>
+                        <div class="category-desc">Pengalaman casino langsung dengan dealer profesional</div>
+                    </div>
+                    
+                    <div class="category-card" data-tab="casino">
+                        <div class="category-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="category-title">Casino Games</div>
+                        <div class="category-desc">Permainan casino klasik dengan variasi modern</div>
+                    </div>
+                    
+                    <div class="category-card" data-tab="sportsbook">
+                        <div class="category-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <div class="category-title">Sportsbook</div>
+                        <div class="category-desc">Taruhan olahraga dengan odds terbaik</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">PERMAINAN POPULER</h3>
+                <div class="popular-games">
+                    <div class="game-card">
+                        <img src="image/gatesofolymplus.webp" alt="Gates of Olympus" />
+                        <div class="game-info">
+                            <div class="game-title">Gates of Olympus</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="image/SweetBonanza.webp" alt="Sweet Bonanza" />
+                        <div class="game-info">
+                            <div class="game-title">Sweet Bonanza</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="image/StarlightPrincess.webp" alt="Starlight Princess" />
+                        <div class="game-info">
+                            <div class="game-title">Starlight Princess</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="image/vswaysmahwblck.webp" alt="5 Lions Megaways" />
+                        <div class="game-info">
+                            <div class="game-title">Mahjong Wins 3</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">PROMO HARI INI</h3>
+                <div class="info-box-dashboard">
+                    <h3>Bonus Deposit 100%</h3>
+                    <p>Dapatkan bonus deposit 100% untuk semua member baru! Maksimal bonus IDR 1.000.000. Syarat dan ketentuan berlaku.</p>
+                    <button class="btn-submit-inline" style="margin-top: 15px;">Klaim Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Profil Tab -->
+            <div class="tab-content" id="profil-tab">
+                <h2>Profil Saya</h2>
+                <p>Kelola informasi akun dan data pribadi Anda.</p>
+                
+                <div class="profile-container">
+                    <div class="profile-sidebar">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/120x120/1a1a2e/e94560?text=USER" alt="Avatar User" />
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-name" id="profileUserName">Player Toto77</div>
+                            <div class="profile-level">⭐ Member Baru</div>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="profileSaldo">IDR 0</div>
+                                    <div class="stat-label">Saldo</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="profileTotalBet">0</div>
+                                    <div class="stat-label">Total Bet</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="profileTotalWin">IDR 0</div>
+                                    <div class="stat-label">Total Menang</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="profileWinRate">0%</div>
+                                    <div class="stat-label">Win Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-main">
+                        <div class="profile-section">
+                            <h3>Informasi Pribadi</h3>
+                            <div class="form-group">
+                                <label for="profileUsername">Username</label>
+                                <input type="text" id="profileUsername" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileEmail">Email</label>
+                                <input type="email" id="profileEmail" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="profilePhone">Nomor Telepon</label>
+                                <input type="text" id="profilePhone" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="profileName">Nama Lengkap</label>
+                                <input type="text" id="profileName" value="">
+                            </div>
+                            <button class="btn-profile">Simpan Perubahan</button>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <h3>Keamanan Akun</h3>
+                            <div class="form-group">
+                                <label for="currentPassword">Password Saat Ini</label>
+                                <input type="password" id="currentPassword" placeholder="Masukkan password saat ini">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Password Baru</label>
+                                <input type="password" id="newPassword" placeholder="Masukkan password baru">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Konfirmasi Password Baru</label>
+                                <input type="password" id="confirmPassword" placeholder="Konfirmasi password baru">
+                            </div>
+                            <button class="btn-profile">Ubah Password</button>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <h3>Preferensi</h3>
+                            <div class="form-group">
+                                <label for="profileCurrency">Mata Uang</label>
+                                <select id="profileCurrency">
+                                    <option value="IDR" selected>Rupiah (IDR)</option>
+                                    <option value="USD">US Dollar (USD)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileLanguage">Bahasa</label>
+                                <select id="profileLanguage">
+                                    <option value="id" selected>Bahasa Indonesia</option>
+                                    <option value="en">English</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileTimezone">Zona Waktu</label>
+                                <select id="profileTimezone">
+                                    <option value="WIB" selected>WIB (UTC+7)</option>
+                                    <option value="WITA">WITA (UTC+8)</option>
+                                </select>
+                            </div>
+                            <button class="btn-profile">Simpan Preferensi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slot Tab - HANYA MENAMPILKAN PERMAINAN -->
+            <div class="tab-content" id="slot-tab">
+                <h2>Slot Games</h2>
+                <p>Pilih dari ratusan game slot terbaik dengan RTP tinggi dan jackpot menggiurkan.</p>
+                
+                <!-- Search and Filter -->
+                <div class="search-filter">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Cari game slot...">
+                    </div>
+                    <select class="filter-select">
+                        <option value="">Semua Provider</option>
+                        <option value="pragmatic">Pragmatic Play</option>
+                        <option value="pgsoft">PG Soft</option>
+                        <option value="habanero">Habanero</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Semua Kategori</option>
+                        <option value="popular">Populer</option>
+                        <option value="new">Terbaru</option>
+                        <option value="jackpot">Jackpot</option>
+                    </select>
+                </div>
+                
+                <h3 class="section-title">GAME TERPOPULER</h3>
+                <div class="popular-games">
+                    <div class="game-card">
+                        <img src="image/gatesofolymplus.webp" alt="Gates of Olympus" />
+                        <div class="game-info">
+                            <div class="game-title">Gates of Olympus</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="image/SweetBonanza.webp" alt="Sweet Bonanza" />
+                        <div class="game-info">
+                            <div class="game-title">Sweet Bonanza</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="image/StarlightPrincess.webp" alt="Starlight Princess" />
+                        <div class="game-info">
+                            <div class="game-title">Starlight Princess</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="image/vswaysmahwblck.webp" alt="Mahjong Wins 3" />
+                        <div class="game-info">
+                            <div class="game-title">Mahjong Wins 3</div>
+                            <div class="game-provider">Pragmatic Play</div>
+                        </div>
+                        <button class="play-btn">MAIN</button>
+                    </div>
+                </div>
+                
+                <h3 class="section-title" id="providerSectionTitle">SEMUA PROVIDER</h3>
+                <div class="provider-grid" role="list" aria-labelledby="providerSectionTitle">
+                    <div class="provider-card" role="listitem" tabindex="0" aria-label="Pragmatic Play provider">
+                        <img src="image/pramatic.webp" alt="Pragmatic Play" />
+                    </div>
+                    <div class="provider-card" role="listitem" tabindex="0" aria-label="PG Soft provider">
+                        <img src="image/pgsoft.webp" alt="PG Soft" />
+                    </div>
+                    <div class="provider-card" role="listitem" tabindex="0" aria-label="Habanero provider">
+                        <img src="image/slot4d.webp" alt="Habanero" />
+                    </div>
+                    <div class="provider-card" role="listitem" tabindex="0" aria-label="Joker Gaming provider">
+                        <img src="image/joker.webp" alt="Joker Gaming" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaksi Tab - MENAMPILKAN DEPOSIT & WITHDRAW -->
+            <div class="tab-content" id="transaksi-tab">
+                <h2>Transaksi</h2>
+                <p>Kelola deposit dan penarikan dana Anda dengan mudah.</p>
+                
+                <section class="deposit-form-simulasi" aria-labelledby="depositFormTitle">
+                    <div class="deposit-banks" role="list">
+                        <div class="bank-card" role="listitem">
+                            <!-- MENGGUNAKAN GAMBAR QRIS ANDA -->
+                            <img src="image/qris.jpg" alt="QRIS Toto77" style="width: 150px; height: 150px; object-fit: contain;" />
+                            <p>Deposit Min IDR 10.000</p>
+                        </div>
+                    </div>
+
+                    <div class="deposit-form-box">
+                        <h3 id="depositFormTitle">Formulir Deposit</h3>
+                        <form id="depositFormInline">
+                            <label for="depositAmountInline">Jumlah Deposit</label>
+                            <div class="input-group">
+                                <input
+                                    type="number"
+                                    id="depositAmountInline"
+                                    min="10000"
+                                    required
+                                    aria-describedby="depositAmountDesc"
+                                    placeholder="Minimal 10.000"
+                                />
+                                <span class="input-addon">IDR</span>
+                            </div>
+                            <button type="submit" class="btn-submit-inline">Kirim</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- QRIS Display (akan muncul setelah submit) -->
+                <div class="qris-display" id="qrisDisplay">
+                    <h3>Silakan Scan QRIS Berikut</h3>
+                    <div class="qris-amount" id="qrisAmount">Total: IDR 0</div>
+                    <div class="qris-code">
+                        <!-- MENGGUNAKAN GAMBAR QRIS ANDA -->
+                        <img src="image/qris.jpg" alt="QR Code Payment Toto77" id="dynamicQRCode" style="width: 100%; height: 100%; object-fit: contain;" />
+                    </div>
+                    <div class="qris-instruction">
+                        <p>1. Buka aplikasi e-wallet atau mobile banking Anda</p>
+                        <p>2. Pilih fitur scan QRIS</p>
+                        <p>3. Arahkan kamera ke kode QR di atas</p>
+                        <p>4. Konfirmasi pembayaran</p>
+                    </div>
+                    <div class="timer" id="paymentTimer">Batas waktu: 15:00</div>
+                    <button class="btn-submit-inline" id="cancelPayment">Batalkan</button>
+                </div>
+
+                <section class="withdraw-form-simulasi" aria-labelledby="withdrawFormTitle" style="display:none;">
+                    <div class="withdraw-banks" role="list">
+                        <div class="bank-card" role="listitem">
+                            <img src="https://via.placeholder.com/100x60/2196F3/FFFFFF?text=BCA" alt="BCA" />
+                            <p>Withdraw Min IDR 50.000</p>
+                        </div>
+                        <div class="bank-card" role="listitem">
+                            <img src="https://via.placeholder.com/100x60/FF9800/FFFFFF?text=MANDIRI" alt="Mandiri" />
+                            <p>Withdraw Min IDR 50.000</p>
+                        </div>
+                    </div>
+
+                    <div class="withdraw-form-box">
+                        <h3 id="withdrawFormTitle">Formulir Withdraw</h3>
+                        <form id="withdrawFormInline">
+                            <label for="withdrawAmountInline">Jumlah Penarikan</label>
+                            <div class="input-group">
+                                <input
+                                    type="number"
+                                    id="withdrawAmountInline"
+                                    min="50000"
+                                    required
+                                    aria-describedby="withdrawAmountDesc"
+                                    placeholder="Masukkan jumlah penarikan"
+                                />
+                                <span class="input-addon">IDR</span>
+                            </div>
+                            <label for="withdrawBankInfo">No Rekening Tujuan</label>
+                            <input
+                                type="text"
+                                id="withdrawBankInfo"
+                                placeholder="Simulasi: BCA 1234567 A/N Nama Anda"
+                                required
+                            />
+                            <button type="submit" class="btn-submit-inline">Kirim</button>
+                        </form>
+                    </div>
+                </section>
+
+                <aside class="info-box-dashboard" aria-label="Important Information">
+                    <h3>Informasi</h3>
+                    <p>
+                        <strong>PENTING!</strong> MOHON SELALU PERHATIKAN NOMOR REKENING TUJUAN DEPOSIT KAMI YANG AKTIF SEBELUM MELAKUKAN TRANSFER! Pihak Toto77 tidak akan memberikan toleransi bagi member yang mengirim dana ke rekening yang tidak tertera di situs kami.
+                    </p>
+                    <p>Minimal deposit: <strong>Rp 10.000</strong> (10 ribu rupiah).</p>
+                </aside>
+            </div>
+
+            <!-- Bonus Tab -->
+            <div class="tab-content" id="bonus-tab">
+                <h2>Bonus & Promosi</h2>
+                <p>Klaim berbagai bonus menarik yang tersedia untuk Anda.</p>
+                
+                <div class="info-box-dashboard">
+                    <h3>🎉 Bonus Deposit 100%</h3>
+                    <p>Dapatkan bonus deposit 100% untuk semua member baru! Maksimal bonus IDR 1.000.000.</p>
+                    <button class="btn-submit-inline" style="margin-top: 15px;">Klaim Bonus</button>
+                </div>
+                
+                <div class="info-box-dashboard">
+                    <h3>💰 Cashback Harian 10%</h3>
+                    <p>Dapatkan cashback 10% setiap hari dari total kekalahan Anda.</p>
+                    <button class="btn-submit-inline" style="margin-top: 15px;">Klaim Cashback</button>
+                </div>
+                
+                <div class="info-box-dashboard">
+                    <h3>🎁 Bonus Referral 20%</h3>
+                    <p>Ajak teman bermain dan dapatkan komisi 20% dari deposit pertama mereka.</p>
+                    <button class="btn-submit-inline" style="margin-top: 15px;">Lihat Referral</button>
+                </div>
+            </div>
+
+            <!-- Memo Tab -->
+            <div class="tab-content" id="memo-tab">
+                <h2>Memo & Riwayat</h2>
+                <p>Lihat riwayat transaksi dan aktivitas akun Anda.</p>
+                
+                <div class="info-box-dashboard">
+                    <h3>📊 Riwayat Transaksi</h3>
+                    <p>Terakhir deposit: <strong>IDR 0</strong> - Belum ada transaksi</p>
+                    <p>Terakhir withdraw: <strong>IDR 0</strong> - Belum ada transaksi</p>
+                    <p>Total deposit bulan ini: <strong>IDR 0</strong></p>
+                </div>
+            </div>
+
+            <!-- Live Game Tab -->
+            <div class="tab-content" id="live-game-tab">
+                <h2>Live Casino Games</h2>
+                <p>Nikmati pengalaman bermain casino langsung dengan dealer profesional.</p>
+                <div class="provider-grid">
+                    <div class="provider-card">
+                        <img src="image/livebarccarat.webp" alt="Live Baccarat" />
+                    </div>
+                    <div class="provider-card">
+                        <img src="image/liveRoulette.webp" alt="Live Roulette" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other tabs would follow the same pattern -->
+            <div class="tab-content" id="casino-tab">
+                <h2>Casino Games</h2>
+                <p>Berbagai permainan casino klasik dengan variasi modern.</p>
+            </div>
+
+            <div class="tab-content" id="sportsbook-tab">
+                <h2>Sportsbook</h2>
+                <p>Taruhan olahraga dari seluruh dunia dengan odds terbaik.</p>
+            </div>
+
+            <div class="tab-content" id="lottery-tab">
+                <h2>Lottery</h2>
+                <p>Permainan lotere dengan hadiah jackpot besar.</p>
+            </div>
+
+            <div class="tab-content" id="poker-tab">
+                <h2>Poker</h2>
+                <p>Permainan poker online dengan pemain dari seluruh dunia.</p>
+            </div>
+
+            <div class="tab-content" id="arcade-tab">
+                <h2>Arcade Games</h2>
+                <p>Permainan arcade seru dengan grafis menarik.</p>
+            </div>
+
+            <div class="tab-content" id="promosi-tab">
+                <h2>Promosi Menarik</h2>
+                <p>Berbagai bonus dan promosi menarik untuk member setia.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabLinks = document.querySelectorAll('.nav-link-toto77');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const categoryCards = document.querySelectorAll('.category-card');
+            const headerLinks = document.querySelectorAll('.header-link');
+            
+            // Initialize first tab as active
+            const firstTab = document.querySelector('.nav-link-toto77.active');
+            const firstTabContent = document.getElementById(firstTab.getAttribute('data-tab') + '-tab');
+            
+            // Function to switch tabs
+            function switchTab(tabName) {
+                // Hide all tab contents
+                tabContents.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Remove active class from all tab links
+                tabLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Show the selected tab content
+                const activeTabContent = document.getElementById(tabName + '-tab');
+                if (activeTabContent) {
+                    activeTabContent.classList.add('active');
+                }
+                
+                // Add active class to the clicked tab link
+                const activeTabLink = document.querySelector(`.nav-link-toto77[data-tab="${tabName}"]`);
+                if (activeTabLink) {
+                    activeTabLink.classList.add('active');
+                }
+            }
+            
+            // Add click event listeners to tab links
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    switchTab(tabName);
+                });
+            });
+            
+            // Add click event listeners to category cards
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    switchTab(tabName);
+                });
+            });
+            
+            // Add click event listeners to header links
+            headerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabName = this.getAttribute('data-tab');
+                    if (tabName) {
+                        switchTab(tabName);
+                    }
+                });
+            });
+            
+            // Deposit/Withdraw button functionality
+            const depositBtn = document.getElementById('openDepositBtn');
+            const withdrawBtn = document.getElementById('openWithdrawBtn');
+            const depositForm = document.querySelector('.deposit-form-simulasi');
+            const withdrawForm = document.querySelector('.withdraw-form-simulasi');
+            
+            depositBtn.addEventListener('click', function() {
+                switchTab('transaksi');
+                // Show deposit form and hide withdraw form
+                depositForm.style.display = 'flex';
+                withdrawForm.style.display = 'none';
+                // Hide QRIS display if visible
+                document.getElementById('qrisDisplay').classList.remove('active');
+            });
+            
+            withdrawBtn.addEventListener('click', function() {
+                switchTab('transaksi');
+                
+                // Cek apakah user sudah deposit
+                const currentUser = localStorage.getItem('currentUser');
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const userData = users.find(user => user.username === currentUser);
+                
+                if (!userData || !userData.hasDeposited) {
+                    alert('❌ Anda harus melakukan deposit terlebih dahulu sebelum bisa melakukan withdraw!');
+                    depositForm.style.display = 'flex';
+                    withdrawForm.style.display = 'none';
+                    return;
+                }
+                
+                // Cek apakah punya saldo deposit yang bisa di-withdraw
+                if (userData.saldoDeposit <= 0) {
+                    alert('❌ Saldo deposit Anda tidak mencukupi untuk melakukan withdraw!');
+                    depositForm.style.display = 'flex';
+                    withdrawForm.style.display = 'none';
+                    return;
+                }
+                
+                // Show withdraw form and hide deposit form
+                depositForm.style.display = 'none';
+                withdrawForm.style.display = 'flex';
+                // Hide QRIS display if visible
+                document.getElementById('qrisDisplay').classList.remove('active');
+            });
+            
+            // MODIFIKASI: Play buttons - selalu arahkan ke deposit
+            const playButtons = document.querySelectorAll('.play-btn');
+            playButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Selalu arahkan ke tab transaksi/deposit
+                    switchTab('transaksi');
+                    
+                    // Tampilkan form deposit dan sembunyikan withdraw
+                    depositForm.style.display = 'flex';
+                    withdrawForm.style.display = 'none';
+                    
+                    // Tampilkan notifikasi
+                    alert('💰 Untuk bermain game, silakan lakukan deposit terlebih dahulu!');
+                });
+            });
+            
+            // Deposit form submission
+            const depositFormInline = document.getElementById('depositFormInline');
+            const qrisDisplay = document.getElementById('qrisDisplay');
+            const qrisAmount = document.getElementById('qrisAmount');
+            const paymentTimer = document.getElementById('paymentTimer');
+            const cancelPayment = document.getElementById('cancelPayment');
+            const dynamicQRCode = document.getElementById('dynamicQRCode');
+            
+            let countdown;
+            
+            depositFormInline.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const amount = parseInt(document.getElementById('depositAmountInline').value);
+                
+                // Validasi minimal deposit
+                if (amount < 10000) {
+                    alert('Minimal deposit adalah IDR 10.000');
+                    return;
+                }
+                
+                // Format angka dengan titik sebagai pemisah ribuan
+                const formattedAmount = new Intl.NumberFormat('id-ID').format(amount);
+                
+                // Update QRIS display dengan jumlah yang dimasukkan
+                qrisAmount.textContent = `Total: IDR ${formattedAmount}`;
+                
+                // Sembunyikan form deposit dan tampilkan QRIS
+                depositForm.style.display = 'none';
+                qrisDisplay.classList.add('active');
+                
+                // Mulai timer 15 menit
+                startTimer(15 * 60, paymentTimer, amount);
+            });
+            
+            // Withdraw form submission
+            const withdrawFormInline = document.getElementById('withdrawFormInline');
+            
+            withdrawFormInline.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const amount = parseInt(document.getElementById('withdrawAmountInline').value);
+                const bankInfo = document.getElementById('withdrawBankInfo').value;
+                
+                // Validasi minimal withdraw
+                if (amount < 50000) {
+                    alert('Minimal penarikan adalah IDR 50.000');
+                    return;
+                }
+                
+                // Get user data
+                const currentUser = localStorage.getItem('currentUser');
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const userData = users.find(user => user.username === currentUser);
+                
+                if (!userData) {
+                    alert('Error: Data user tidak ditemukan!');
+                    return;
+                }
+                
+                // Cek apakah saldo deposit mencukupi
+                if (userData.saldoDeposit < amount) {
+                    alert(`❌ Saldo deposit tidak mencukupi! Saldo deposit Anda: IDR ${new Intl.NumberFormat('id-ID').format(userData.saldoDeposit)}`);
+                    return;
+                }
+                
+                // Cek turnover requirement (contoh: harus main minimal 5x deposit)
+                const minTurnover = userData.saldoDeposit * 5;
+                if (userData.turnover < minTurnover) {
+                    alert(`❌ Anda harus mencapai turnover IDR ${new Intl.NumberFormat('id-ID').format(minTurnover)} sebelum bisa withdraw! Turnover saat ini: IDR ${new Intl.NumberFormat('id-ID').format(userData.turnover)}`);
+                    return;
+                }
+                
+                // Proses withdraw
+                userData.saldoDeposit -= amount;
+                userData.saldo -= amount;
+                
+                // Update data user
+                const userIndex = users.findIndex(user => user.username === currentUser);
+                users[userIndex] = userData;
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                alert(`✅ Withdraw sebesar IDR ${new Intl.NumberFormat('id-ID').format(amount)} ke ${bankInfo} berhasil diproses! Dana akan ditransfer dalam 1x24 jam.`);
+                
+                // Reset form dan reload data
+                this.reset();
+                loadUserData();
+            });
+            
+            // Cancel payment button
+            cancelPayment.addEventListener('click', function() {
+                qrisDisplay.classList.remove('active');
+                depositForm.style.display = 'flex';
+                clearInterval(countdown);
+            });
+            
+            // Timer function dengan simulasi deposit
+            function startTimer(duration, display, depositAmount) {
+                let timer = duration, minutes, seconds;
+                countdown = setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+                    
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+                    
+                    display.textContent = "Batas waktu: " + minutes + ":" + seconds;
+                    
+                    if (--timer < 0) {
+                        clearInterval(countdown);
+                        display.textContent = "Waktu habis!";
+                        setTimeout(function() {
+                            qrisDisplay.classList.remove('active');
+                            depositForm.style.display = 'flex';
+                            alert('Waktu pembayaran telah habis. Silakan ulangi proses deposit.');
+                        }, 1000);
+                    }
+                    
+                    // Simulasi deposit berhasil setelah 5 detik (untuk demo)
+                    if (timer === duration - 5) {
+                        processDeposit(depositAmount);
+                    }
+                }, 1000);
+            }
+            
+            // Function untuk memproses deposit
+            function processDeposit(amount) {
+                const currentUser = localStorage.getItem('currentUser');
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const userData = users.find(user => user.username === currentUser);
+                
+                if (userData) {
+                    // Tambah saldo deposit
+                    userData.saldoDeposit += amount;
+                    userData.saldo += amount;
+                    userData.hasDeposited = true;
+                    
+                    // Update data user
+                    const userIndex = users.findIndex(user => user.username === currentUser);
+                    users[userIndex] = userData;
+                    localStorage.setItem('users', JSON.stringify(users));
+                    
+                    // Tampilkan pesan sukses
+                    setTimeout(() => {
+                        alert(`✅ Deposit sebesar IDR ${new Intl.NumberFormat('id-ID').format(amount)} berhasil! Saldo Anda telah ditambahkan.`);
+                        loadUserData();
+                    }, 1000);
+                }
+            }
+            
+            // Logout Functionality
+            const logoutBtn = document.getElementById('logoutBtn');
+            const logoutModal = document.getElementById('logoutModal');
+            const confirmLogout = document.getElementById('confirmLogout');
+            const cancelLogout = document.getElementById('cancelLogout');
+            
+            // Show logout confirmation modal
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                logoutModal.classList.add('active');
+            });
+            
+            // Confirm logout
+            confirmLogout.addEventListener('click', function() {
+                logout();
+            });
+            
+            // Cancel logout
+            cancelLogout.addEventListener('click', function() {
+                logoutModal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            logoutModal.addEventListener('click', function(e) {
+                if (e.target === logoutModal) {
+                    logoutModal.classList.remove('active');
+                }
+            });
+            
+            // Initialize with games tab active (default after login)
+            switchTab('games');
+            
+            // Load user data from localStorage
+            loadUserData();
+            
+            // Function to load user data from localStorage
+            function loadUserData() {
+                // Check if user is logged in
+                const isLoggedIn = localStorage.getItem('isLoggedIn');
+                const currentUser = localStorage.getItem('currentUser');
+                
+                if (!isLoggedIn || !currentUser) {
+                    alert('Anda belum login. Silakan login terlebih dahulu.');
+                    window.location.href = 'index.html';
+                    return;
+                }
+                
+                // Get all users from localStorage
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                
+                // Find current user data
+                const userData = users.find(user => user.username === currentUser);
+                
+                if (userData) {
+                    // Update header with user info
+                    document.getElementById('currentUsername').textContent = userData.username;
+                    
+                    // Format saldo dengan warna berbeda untuk bonus dan deposit
+                    const totalSaldoElem = document.getElementById('totalSaldo');
+                    const saldoBonus = userData.saldoBonus || 0;
+                    const saldoDeposit = userData.saldoDeposit || 0;
+                    
+                    totalSaldoElem.innerHTML = `
+                        <span style="color: #ffd700">IDR ${new Intl.NumberFormat('id-ID').format(userData.saldo || 0)}</span>
+                        <br>
+                        <small style="font-size: 12px; color: #ccc">
+                            (Bonus: IDR ${new Intl.NumberFormat('id-ID').format(saldoBonus)} | 
+                            Deposit: IDR ${new Intl.NumberFormat('id-ID').format(saldoDeposit)})
+                        </small>
+                    `;
+                    
+                    // Update profile tab with user info
+                    document.getElementById('profileUserName').textContent = userData.name || userData.username;
+                    document.getElementById('profileUsername').value = userData.username;
+                    document.getElementById('profileEmail').value = userData.email || '';
+                    document.getElementById('profilePhone').value = userData.phone || '';
+                    document.getElementById('profileName').value = userData.name || userData.username;
+                    
+                    // Update profile stats
+                    document.getElementById('profileSaldo').textContent = 'IDR ' + new Intl.NumberFormat('id-ID').format(userData.saldo || 0);
+                    document.getElementById('profileTotalBet').textContent = new Intl.NumberFormat('id-ID').format(userData.totalBet || 0);
+                    document.getElementById('profileTotalWin').textContent = 'IDR ' + new Intl.NumberFormat('id-ID').format(userData.totalWin || 0);
+                    
+                    // Calculate win rate
+                    const winRate = userData.totalBet > 0 ? Math.round((userData.totalWin || 0) / userData.totalBet * 100) : 0;
+                    document.getElementById('profileWinRate').textContent = winRate + '%';
+                    
+                    // Update level based on saldo dan turnover
+                    const levelElement = document.querySelector('.profile-level');
+                    if (userData.turnover >= 5000000) {
+                        levelElement.textContent = '⭐ Member VIP';
+                        levelElement.style.background = 'linear-gradient(135deg, #FFD700, #FF6B00)';
+                    } else if (userData.turnover >= 1000000) {
+                        levelElement.textContent = '⭐ Member Premium';
+                        levelElement.style.background = 'linear-gradient(135deg, #C0C0C0, #808080)';
+                    } else {
+                        levelElement.textContent = '⭐ Member Baru';
+                        levelElement.style.background = 'linear-gradient(135deg, #e94560, #b0304a)';
+                    }
+                    
+                    // Update info saldo di memo tab
+                    const memoInfo = document.querySelector('#memo-tab .info-box-dashboard');
+                    if (memoInfo) {
+                        memoInfo.innerHTML = `
+                            <h3>📊 Riwayat & Info Saldo</h3>
+                            <p>Saldo Total: <strong>IDR ${new Intl.NumberFormat('id-ID').format(userData.saldo || 0)}</strong></p>
+                            <p>Saldo Bonus: <strong>IDR ${new Intl.NumberFormat('id-ID').format(saldoBonus)}</strong></p>
+                            <p>Saldo Deposit: <strong>IDR ${new Intl.NumberFormat('id-ID').format(saldoDeposit)}</strong></p>
+                            <p>Total Turnover: <strong>IDR ${new Intl.NumberFormat('id-ID').format(userData.turnover || 0)}</strong></p>
+                            <p>Total Bet: <strong>IDR ${new Intl.NumberFormat('id-ID').format(userData.totalBet || 0)}</strong></p>
+                            <p>Total Win: <strong>IDR ${new Intl.NumberFormat('id-ID').format(userData.totalWin || 0)}</strong></p>
+                            ${!userData.hasDeposited ? '<p style="color: #ffd700; margin-top: 10px;"><strong>💡 Tips: Lakukan deposit pertama untuk bisa withdraw!</strong></p>' : ''}
+                        `;
+                    }
+                }
+            }
+            
+            // Function to handle logout
+            function logout() {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('currentUser');
+                logoutModal.classList.remove('active');
+                alert('Anda telah logout.');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>

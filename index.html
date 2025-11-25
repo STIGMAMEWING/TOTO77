@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes'>
+    <title>Toto77 - Situs Game Online Terpercaya</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Withdraw Notification */
+        .withdraw-notification {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 900;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 320px;
+            border: 2px solid #ffd700;
+            animation: slideDown 0.8s ease forwards, stayVisible 4s 0.8s forwards, slideUp 0.8s 4.8s forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+            to {
+                top: 20px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes stayVisible {
+            from {
+                top: 20px;
+                opacity: 1;
+            }
+            to {
+                top: 20px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                top: 20px;
+                opacity: 1;
+            }
+            to {
+                top: -100px;
+                opacity: 0;
+            }
+        }
+
+        .withdraw-icon {
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-5px);
+            }
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+
+        .withdraw-content {
+            flex: 1;
+        }
+
+        .withdraw-message {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .withdraw-details {
+            font-size: 12px;
+            opacity: 0.9;
+            display: flex;
+            gap: 10px;
+        }
+
+        .withdraw-amount {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .withdraw-bank {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .bank-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        /* Header Top */
+        .header-top-toto77 {
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+            padding: 8px 0;
+            border-bottom: 2px solid #e94560;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .header-marquee {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .header-marquee i {
+            color: #ffd700;
+            font-size: 16px;
+        }
+        
+        .marquee-text {
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: opacity 0.5s ease;
+        }
+        
+        .header-fast-auth {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .fast-login-form {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            width: 100%;
+            max-width: 360px;
+            justify-content: center;
+        }
+        
+        .fast-login-form input {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            width: 120px;
+        }
+
+        /* Fixed centered login (desktop & mobile) */
+        .fixed-center-login {
+            position: fixed;
+            left: 50%;
+            top: 18px; /* di bagian atas tengah */
+            transform: translateX(-50%);
+            z-index: 1300;
+            background: rgba(0, 0, 0, 0.55);
+            padding: 10px 14px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            max-width: 98%;
+            width: 420px;
+            transition: top 200ms ease, transform 200ms ease;
+        }
+
+        .fixed-center-login input {
+            width: calc(50% - 10px);
+            min-width: 120px;
+        }
+
+        .fixed-center-login .btn-daftar-fast {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile adjustments: stack inputs and buttons */
+        @media (max-width: 480px) {
+            .fixed-center-login {
+                width: 96%;
+                left: 50%;
+                top: 12px; /* sedikit lebih rapat di mobile */
+                transform: translateX(-50%);
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .fixed-center-login input,
+            .fixed-center-login .btn-masuk-fast,
+            .fixed-center-login .btn-daftar-fast {
+                width: 100%;
+            }
+        }
+        
+        .btn-masuk-fast, .btn-daftar-fast {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-masuk-fast {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-daftar-fast {
+            background: #e94560;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btn-masuk-fast:hover, .btn-daftar-fast:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .lupa-sandi-link {
+            color: #ffd700;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        
+        .lupa-sanda-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Header Mid */
+        .header-mid-toto77 {
+            background: rgba(15, 52, 96, 0.9);
+            padding: 15px 0;
+            border-bottom: 2px solid #e94560;
+        }
+        
+        .header-mid-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .header-logo img {
+            max-width: 250px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        }
+        
+        /* Navigation Bar */
+        .header-nav-toto77 {
+            background: linear-gradient(90deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-nav-toto77 {
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+            padding: 5px 0;
+        }
+        
+        .nav-link-toto77 {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .nav-link-toto77:hover, .nav-link-toto77.active {
+            background-color: #e94560;
+            transform: translateY(-2px);
+        }
+        
+        .hot-link {
+            color: #ff6b6b;
+        }
+        
+        .event-link {
+            background-color: #ffd700;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 40px 0;
+            background: rgba(26, 26, 46, 0.6);
+            margin-bottom: 30px;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .hero-banner-info {
+            text-align: center;
+        }
+        
+        .banner-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Jackpot Display */
+        .jackpot-display-container {
+            background: linear-gradient(135deg, #ffd700, #ff6b00);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .jackpot-ticker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .gold-trophy {
+            color: #fff;
+            font-size: 28px;
+        }
+        
+        .ticker-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .jackpot-sub-info {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.5s ease;
+        }
+        
+        /* Game Buttons */
+        .hero-game-buttons {
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .game-icon-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .btn-game-icon {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #e94560;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .btn-game-icon:hover {
+            background: rgba(233, 69, 96, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-game-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Game Preview Section */
+        .game-preview-section {
+            padding: 40px 0;
+            background: rgba(15, 52, 96, 0.6);
+            margin-bottom: 30px;
+        }
+        
+        .preview-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffd700;
+            font-size: 28px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .preview-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(233, 69, 96, 0.2);
+        }
+        
+        .preview-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .preview-card p {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        .index-footer {
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 2px solid #e94560;
+        }
+        
+        .index-footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        .animate-in {
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-fast-auth {
+                justify-content: center;
+            }
+            
+            .fast-login-form {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .fast-login-form input {
+                width: 100px;
+            }
+            
+            .navbar-nav-toto77 {
+                justify-content: flex-start;
+            }
+            
+            .game-icon-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .jackpot-ticker {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .ticker-amount {
+                font-size: 20px;
+            }
+
+            .withdraw-notification {
+                min-width: 280px;
+                left: 10px;
+                right: 10px;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .game-icon-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fast-login-form {
+                flex-direction: column;
+            }
+            
+            .fast-login-form input {
+                width: 100%;
+            }
+
+            .withdraw-notification {
+                min-width: 250px;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+    <style>
+        .header-top-toto77 {
+            position: relative;
+            z-index: 1100;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="https://images.linkcdn.cloud/V2/734/favicon/favicon-821061307.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="index-body">
+
+    <div id="notificationContainer"></div>
+
+    <div class="header-top-toto77">
+        <div class="container header-top-content">
+            <div class="header-marquee">
+                <i class="fas fa-bullhorn"></i>
+                <div class="marquee-text" id="runningText">
+                    SELAMAT DATANG BOSS KU DI TOTO77 SITUS TOTO & SLOT RESMI TERBAIK TERLENGKAP DAN TERPERCAYA ! KEMENANGAN BERAPA PUN PASTI TOTO77 BAYARKAN 100% !!!
+                </div>
+            </div>
+            <div class="header-fast-auth">
+                <i class="fas fa-search icon-rupiah" style="color:white;"></i> Rupiah
+                <form class="fast-login-form fixed-center-login" id="fastLoginForm">
+                    <input type="text" placeholder="nama pengguna" id="loginUsernameFast" required>
+                    <input type="password" placeholder="Kata Sandi" id="loginPasswordFast" required>
+                    <button type="submit" class="btn-masuk-fast">Masuk</button>
+                    <a href="register.html" class="btn-daftar-fast">Daftar</a>
+                </form>
+                <a href="#" class="lupa-sandi-link">Lupa Kata Sandi?</a>
+            </div>
+        </div>
+    </div>
+    
+    <header class="header-mid-toto77">
+        <div class="container">
+            <div class="header-mid-content">
+                <div class="header-logo">
+                    <img alt="Toto77 Logo" src="image/toto77.png" width="250" height="54">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-nav-toto77">
+        <div class="container">
+            <div class="navbar-nav-toto77">
+                <a class="nav-link-toto77 active" href="index.html">🏠 Home</a>
+                <span class="nav-link-toto77 static-link hot-link"><i class="fas fa-fire"></i> Slot</span>
+                <span class="nav-link-toto77 static-link">Live Casino</span>
+                <span class="nav-link-toto77 static-link">Sportsbook</span>
+                <span class="nav-link-toto77 static-link">Lottery</span>
+                <span class="nav-link-toto77 static-link">Poker</span>
+                <span class="nav-link-toto77 static-link">Arcade</span>
+                <span class="nav-link-toto77 static-link">Berita</span>
+                <span class="nav-link-toto77 static-link">Promosi</span>
+                <span class="nav-link-toto77 event-link"><i class="fas fa-bullhorn"></i> EVENT</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero-section">
+        <div class="hero-content container">
+            <div class="hero-banner-info">
+                <img src="image/bannertoto77.jpg" alt="Jamin Dibayar 100%" class="banner-img"> 
+            </div>
+
+            <div class="jackpot-display-container">
+                <div class="jackpot-ticker animate-in delay-2">
+                    <span class="ticker-label">JACKPOT</span>
+                    <i class="fas fa-trophy gold-trophy"></i>
+                    <span class="ticker-amount" id="animatedJackpot">IDR 0,000,000,000</span>
+                </div>
+                <div class="jackpot-sub-info">
+                    <span id="randomJackpotInfo">🎯 Jackpot sedang berjalan...</span>
+                </div>
+            </div>
+            
+            <div class="hero-game-buttons">
+                   <div class="game-icon-group">
+                       <button class="btn-game-icon">
+                           <img src="image/sports_1.png" alt="Sportsbook">
+                           <span>SPORTSBOOK</span>
+                       </button>
+                       <button class="btn-game-icon">
+                           <img src="image/slots_1.png" alt="Slot">
+                           <span>SLOT</span>
+                       </button>
+                        <button class="btn-game-icon">
+                            <img src="image/casino_1.png" alt="Casino">
+                            <span>CASINO</span>
+                        </button>
+                        <button class="btn-game-icon">
+                            <img src="image/lottery_1.png" alt="Lottery">
+                            <span>LOTTERY</span>
+                        </button>
+                   </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-preview-section">
+        <div class="container">
+            <h3 class="preview-title">🔥 GAME TERPOPULER MINGGU INI</h3>
+            <div class="preview-grid">
+                <div class="preview-card animate-scroll">
+                    <img src="image/gatesofolymplus.webp" alt="Gates of Olympus">
+                    <p>Gates of Olympus</p>
+                </div>
+                <div class="preview-card animate-scroll delay-1">
+                    <img src="image/liveRoulette.jpg" alt="Live Roulette">
+                    <p>Live Roulette</p>
+                </div>
+                <div class="preview-card animate-scroll delay-2">
+                    <img src="image/keluaranhklotto.webp" alt="Togel">
+                    <p>Togel HK Pools</p>
+                </div>
+                <div class="preview-card animate-scroll delay-3">
+                    <img src="image/sports_1.png" alt="Sportsbook">
+                    <p>Sportsbook</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="index-footer">
+        <div class="container">
+            <p>&copy; 2025 Toto77. All Rights Reserved. | <span class="static-link">Syarat & Ketentuan</span></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Data untuk notifikasi withdraw acak (DITAMBAH OPSI E-WALLET)
+        const withdrawData = [
+            { name: "Budi S", amount: 12500000, bank: "BCA", bankIcon: "BCA" },
+            { name: "Sari I", amount: 8750000, bank: "Mandiri", bankIcon: "MDR" },
+            { name: "Rizki P", amount: 25300000, bank: "BRI", bankIcon: "BRI" },
+            { name: "Dewi L", amount: 15800000, bank: "BNI", bankIcon: "BNI" },
+            // --- Tambahan E-Wallet ---
+            { name: "Adi F", amount: 6500000, bank: "DANA", bankIcon: "DANA" },
+            { name: "Lia H", amount: 11200000, bank: "GOPAY", bankIcon: "GPY" },
+            { name: "Fajar G", amount: 9800000, bank: "OVO", bankIcon: "OVO" },
+            // --- Data Lainnya ---
+            { name: "Ahmad R", amount: 9200000, bank: "BCA", bankIcon: "BCA" },
+            { name: "Maya S", amount: 18700000, bank: "Mandiri", bankIcon: "MDR" },
+            { name: "Joko W", amount: 31500000, bank: "BRI", bankIcon: "BRI" },
+            { name: "Linda K", amount: 11200000, bank: "BNI", bankIcon: "BNI" },
+            { name: "Rudi H", amount: 24500000, bank: "BCA", bankIcon: "BCA" },
+            { name: "Siti M", amount: 7600000, bank: "GOPAY", bankIcon: "GPY" }
+        ];
+
+        // Fungsi untuk membuat notifikasi withdraw
+        function createWithdrawNotification() {
+            const container = document.getElementById('notificationContainer');
+            const randomData = withdrawData[Math.floor(Math.random() * withdrawData.length)];
+            
+            const notification = document.createElement('div');
+            notification.className = 'withdraw-notification';
+            
+            // Format amount dengan pemisah ribuan
+            const formattedAmount = new Intl.NumberFormat('id-ID').format(randomData.amount);
+            
+            // Menentukan warna dan ikon berdasarkan nama bank/e-wallet
+            let bankColor, iconText;
+            switch (randomData.bankIcon) {
+                case 'BCA': bankColor = '2196F3'; iconText = 'BCA'; break;
+                case 'MDR': bankColor = 'FF9800'; iconText = 'MDR'; break;
+                case 'BRI': bankColor = '4CAF50'; iconText = 'BRI'; break;
+                case 'BNI': bankColor = '9C27B0'; iconText = 'BNI'; break;
+                case 'DANA': bankColor = '1976D2'; iconText = 'DN'; break; // Warna biru Dana
+                case 'GPY': bankColor = '00C853'; iconText = 'GP'; break; // Warna hijau Gopay
+                case 'OVO': bankColor = '673AB7'; iconText = 'OV'; break; // Warna ungu OVO
+                default: bankColor = '757575'; iconText = 'X';
+            }
+
+            notification.innerHTML = `
+                <div class="withdraw-icon">💰</div>
+                <div class="withdraw-content">
+                    <div class="withdraw-message">${randomData.name} berhasil withdraw!</div>
+                    <div class="withdraw-details">
+                        <span class="withdraw-amount">IDR ${formattedAmount}</span>
+                        <span class="withdraw-bank">
+                            <img src="https://via.placeholder.com/16x16/${bankColor}/ffffff?text=${iconText}" alt="${randomData.bank}" class="bank-icon">
+                            ${randomData.bank}
+                        </span>
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Hapus notifikasi setelah animasi selesai
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 6000);
+        }
+
+        // Fungsi untuk memulai notifikasi acak
+        function startRandomWithdrawNotifications() {
+            // Notifikasi pertama muncul setelah 3 detik
+            setTimeout(() => {
+                createWithdrawNotification();
+                
+                // Set interval untuk notifikasi berikutnya (acak antara 15-45 detik)
+                setInterval(() => {
+                    createWithdrawNotification();
+                }, Math.random() * 30000 + 15000); // 15-45 detik
+            }, 3000);
+        }
+
+        // Animasi Running Text
+        function startRunningText() {
+            const runningText = document.getElementById('runningText');
+            const messages = [
+                "🎉 SELAMAT DATANG BOSS KU DI TOTO77! 🎉 KEMENANGAN BERAPA PUN PASTI DIBAYAR 100%! 💰",
+                "🔥 PROMO NEW MEMBER 100%! DAFTAR SEKARANG DAN DAPATKAN BONUS MENARIK! 🔥",
+                "⚡ JACKPOT BESAR SETIAP HARI! MAIN SEKARANG DAN MENANG HINGGA RATUSAN JUTA! ⚡",
+                "🎰 SLOT GACOR TERLENGKAP! LIVE CASINO & SPORTSBOOK TERPERCAYA! 🎯",
+                "💵 Withdraw harian mencapai IDR 382 juta!"
+            ];
+            
+            let currentMessage = 0;
+            
+            setInterval(() => {
+                runningText.style.opacity = '0';
+                setTimeout(() => {
+                    currentMessage = (currentMessage + 1) % messages.length;
+                    runningText.textContent = messages[currentMessage];
+                    runningText.style.opacity = '1';
+                }, 500);
+            }, 4000);
+        }
+
+        // Animasi Jackpot Acak
+        function startRandomJackpot() {
+            const jackpotElement = document.getElementById('animatedJackpot');
+            const infoElement = document.getElementById('randomJackpotInfo');
+            
+            const jackpotMessages = [
+                "🎯 Player Jakarta menang IDR 125,000,000!",
+                "🔥 Jackpot Slot meningkat 15% hari ini!",
+                "💰 Bonus deposit 20% untuk member baru!",
+                "⚡ Turnamen Slot mingguan dengan hadiah 500 juta!",
+                "🎰 Gates of Olympus jackpot IDR 890,000,000!",
+                "💵 Withdraw harian mencapai IDR 382 juta!"
+            ];
+            
+            // Animasi utama jackpot
+            function animateRandomJackpot() {
+                const baseAmount = 35000000000;
+                const randomIncrement = Math.floor(Math.random() * 1000000000);
+                const finalAmount = baseAmount + randomIncrement;
+                
+                let current = baseAmount - 5000000000;
+                const step = Math.ceil((finalAmount - current) / 50);
+                
+                const interval = setInterval(() => {
+                    current += step;
+                    if (current >= finalAmount) {
+                        current = finalAmount;
+                        clearInterval(interval);
+                        
+                        // Set timeout untuk animasi berikutnya
+                        setTimeout(animateRandomJackpot, 3000);
+                    }
+                    jackpotElement.textContent = 'IDR ' + new Intl.NumberFormat('id-ID').format(current);
+                }, 100);
+            }
+            
+            // Update info jackpot secara acak
+            function updateJackpotInfo() {
+                const randomMessage = jackpotMessages[Math.floor(Math.random() * jackpotMessages.length)];
+                infoElement.style.opacity = '0';
+                setTimeout(() => {
+                    infoElement.textContent = randomMessage;
+                    infoElement.style.opacity = '1';
+                }, 300);
+            }
+            
+            // Scroll animation
+            function handleScrollAnimation() {
+                const elements = document.querySelectorAll('.animate-scroll');
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Mulai animasi
+            animateRandomJackpot();
+            setInterval(updateJackpotInfo, 5000);
+            
+            // Update info pertama kali
+            updateJackpotInfo();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', handleScrollAnimation);
+            
+            // Initial check for elements in view
+            handleScrollAnimation();
+        }
+
+        // Fungsi untuk validasi login
+        function validateLogin(username, password) {
+            // Ambil data users dari localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Cari user yang sesuai
+            const user = users.find(u => u.username === username && u.password === password);
+            return user !== undefined;
+        }
+
+        // Fungsi untuk menangani login
+        function handleLogin(username, password) {
+            if (validateLogin(username, password)) {
+                // Simpan informasi login di localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('currentUser', username);
+                
+                // Tampilkan pesan sukses
+                alert('Login berhasil! Mengarahkan ke dashboard...');
+                
+                // Redirect ke dashboard
+                window.location.href = 'dashboard.html';
+                return true;
+            } else {
+                alert('Username atau password salah! Silakan coba lagi.');
+                return false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Memulai animasi running text
+            startRunningText();
+            
+            // Memulai animasi jackpot acak
+            startRandomJackpot();
+            
+            // Memulai notifikasi withdraw acak
+            startRandomWithdrawNotifications();
+            
+            // Handle login cepat di header
+            document.getElementById('fastLoginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('loginUsernameFast').value;
+                const password = document.getElementById('loginPasswordFast').value;
+                
+                // Validasi input
+                if (!username || !password) {
+                    alert('Silakan isi username dan password!');
+                    return;
+                }
+                
+                handleLogin(username, password);
+            });
+            
+            // Add click events to game buttons
+            document.querySelectorAll('.btn-game-icon').forEach(button => {
+                button.addEventListener('click', function() {
+                    const gameName = this.querySelector('span').textContent;
+                    alert(`Anda memilih ${gameName}! Silakan login untuk bermain.`);
+                });
+            });
+            
+            // Add click events to preview cards
+            document.querySelectorAll('.preview-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const gameName = this.querySelector('p').textContent;
+                    alert(`Anda memilih ${gameName}! Silakan login untuk bermain.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
