@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - Toto77</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .form-center {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+        }
+        
+        .form-box {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .bonus-info {
+            background: linear-gradient(135deg, #ffd700, #ff6b00);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .bonus-info h3 {
+            color: #000;
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .bonus-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin: 5px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #e0e0e0;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #fdbb2d;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px rgba(253, 187, 45, 0.3);
+        }
+        
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .password-strength {
+            height: 5px;
+            margin-top: 5px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.3s ease, background 0.3s ease;
+        }
+        
+        .strength-weak {
+            background: #ff4757;
+            width: 25%;
+        }
+        
+        .strength-medium {
+            background: #ffa502;
+            width: 50%;
+        }
+        
+        .strength-strong {
+            background: #2ed573;
+            width: 75%;
+        }
+        
+        .strength-very-strong {
+            background: #1e90ff;
+            width: 100%;
+        }
+        
+        .password-requirements {
+            margin-top: 5px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .requirement {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+        
+        .requirement span {
+            margin-left: 5px;
+        }
+        
+        .requirement.met {
+            color: #2ed573;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #fdbb2d, #b21f1f);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(178, 31, 31, 0.4);
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(178, 31, 31, 0.6);
+        }
+        
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-footer a {
+            color: #fdbb2d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .form-footer a:hover {
+            color: #ffd166;
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            color: #ff4757;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #2ed573;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 38px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 480px) {
+            .form-box {
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            input {
+                padding: 10px 12px;
+            }
+            
+            .bonus-info {
+                padding: 12px;
+            }
+            
+            .bonus-amount {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-center">
+        <div class="form-box">
+            <h2>Buat Akun Baru</h2>
+            
+            <div class="bonus-info">
+                <h3>🎉 BONUS NEW MEMBER 🎉</h3>
+                <div class="bonus-amount">IDR 500.000</div>
+                <small style="color: #000;">Bonus langsung untuk member baru!</small>
+            </div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="username">Nama Pengguna (Min 6 Karakter)</label>
+                    <input type="text" id="username" required>
+                    <div class="error-message" id="username-error">Nama pengguna harus minimal 6 karakter</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="contoh@mail.com" required>
+                    <div class="error-message" id="email-error">Format email tidak valid</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="text" id="phone" placeholder="Contoh: 0812xxxxxx" required>
+                    <div class="error-message" id="phone-error">Format nomor telepon tidak valid</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Kata Sandi (Min 8 Karakter)</label>
+                    <input type="password" id="password" required>
+                    <span class="input-icon" id="togglePassword">👁️</span>
+                    <div class="password-strength">
+                        <div class="password-strength-bar" id="password-strength-bar"></div>
+                    </div>
+                    <div class="password-requirements">
+                        <div class="requirement" id="length-req">
+                            <span>Minimal 8 karakter</span>
+                        </div>
+                        <div class="requirement" id="lowercase-req">
+                            <span>Minimal 1 huruf kecil</span>
+                        </div>
+                        <div class="requirement" id="uppercase-req">
+                            <span>Minimal 1 huruf besar</span>
+                        </div>
+                        <div class="requirement" id="number-req">
+                            <span>Minimal 1 angka</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+                    <input type="password" id="confirmPassword" required>
+                    <span class="input-icon" id="toggleConfirmPassword">👁️</span>
+                    <div class="error-message" id="confirm-password-error">Kata sandi tidak cocok</div>
+                </div>
+                
+                <button type="submit" class="btn-submit">DAFTAR SEKARANG & DAPATKAN BONUS 500RB</button>
+            </form>
+            
+            <div class="form-footer">
+                Sudah punya akun? <a href="index.html">Masuk di sini</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerForm = document.getElementById('registerForm');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const togglePassword = document.getElementById('togglePassword');
+            const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+            const passwordStrengthBar = document.getElementById('password-strength-bar');
+            
+            // Toggle visibility password
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.textContent = type === 'password' ? '👁️' : '🔒';
+            });
+            
+            // Toggle visibility confirm password
+            toggleConfirmPassword.addEventListener('click', function() {
+                const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPasswordInput.setAttribute('type', type);
+                this.textContent = type === 'password' ? '👁️' : '🔒';
+            });
+            
+            // Validasi password strength
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                checkPasswordStrength(password);
+                validatePasswordRequirements(password);
+            });
+            
+            // Validasi konfirmasi password
+            confirmPasswordInput.addEventListener('input', function() {
+                validatePasswordMatch();
+            });
+            
+            // Validasi form saat submit
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    // Ambil data dari form
+                    const userData = {
+                        username: document.getElementById('username').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        password: document.getElementById('password').value,
+                        saldo: 500000, // SALDO BONUS 500rb untuk new member
+                        saldoBonus: 500000, // Track saldo bonus secara terpisah
+                        saldoDeposit: 0, // Saldo dari deposit
+                        level: "Member Baru",
+                        joinDate: new Date().toLocaleDateString('id-ID'),
+                        totalBet: 0,
+                        totalWin: 0,
+                        name: document.getElementById('username').value,
+                        hasDeposited: false, // Flag untuk menandai sudah deposit atau belum
+                        turnover: 0 // Total taruhan yang sudah dilakukan
+                    };
+                    
+                    // Simpan ke localStorage
+                    if (saveUserData(userData)) {
+                        // Simpan status login
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('currentUser', userData.username);
+                        
+                        alert('🎉 Pendaftaran berhasil! Anda mendapatkan bonus IDR 500.000. Anda akan diarahkan ke dashboard.');
+                        
+                        // Redirect ke dashboard setelah register berhasil
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 2000);
+                    }
+                }
+            });
+            
+            // Fungsi menyimpan data user
+            function saveUserData(userData) {
+                // Ambil existing users dari localStorage
+                const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+                
+                // Cek apakah username sudah ada
+                const userExists = existingUsers.find(user => user.username === userData.username);
+                if (userExists) {
+                    alert('Username sudah terdaftar! Silakan gunakan username lain.');
+                    return false;
+                }
+                
+                // Cek apakah email sudah ada
+                const emailExists = existingUsers.find(user => user.email === userData.email);
+                if (emailExists) {
+                    alert('Email sudah terdaftar! Silakan gunakan email lain.');
+                    return false;
+                }
+                
+                // Tambah user baru
+                existingUsers.push(userData);
+                
+                // Simpan kembali ke localStorage
+                localStorage.setItem('users', JSON.stringify(existingUsers));
+                return true;
+            }
+            
+            // Fungsi validasi form
+            function validateForm() {
+                let isValid = true;
+                
+                // Validasi username
+                const username = document.getElementById('username').value;
+                const usernameError = document.getElementById('username-error');
+                if (username.length < 6) {
+                    usernameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    usernameError.style.display = 'none';
+                }
+                
+                // Validasi email
+                const email = document.getElementById('email').value;
+                const emailError = document.getElementById('email-error');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailError.style.display = 'none';
+                }
+                
+                // Validasi nomor telepon
+                const phone = document.getElementById('phone').value;
+                const phoneError = document.getElementById('phone-error');
+                const phoneRegex = /^[0-9]{10,13}$/;
+                if (!phoneRegex.test(phone)) {
+                    phoneError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    phoneError.style.display = 'none';
+                }
+                
+                // Validasi password
+                const password = passwordInput.value;
+                if (password.length < 8) {
+                    isValid = false;
+                }
+                
+                // Validasi konfirmasi password
+                if (!validatePasswordMatch()) {
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+            
+            // Fungsi validasi kekuatan password
+            function checkPasswordStrength(password) {
+                let strength = 0;
+                
+                // Panjang password
+                if (password.length >= 8) strength += 25;
+                
+                // Huruf kecil
+                if (/[a-z]/.test(password)) strength += 25;
+                
+                // Huruf besar
+                if (/[A-Z]/.test(password)) strength += 25;
+                
+                // Angka
+                if (/[0-9]/.test(password)) strength += 25;
+                
+                // Update tampilan strength bar
+                passwordStrengthBar.className = 'password-strength-bar';
+                
+                if (strength <= 25) {
+                    passwordStrengthBar.classList.add('strength-weak');
+                } else if (strength <= 50) {
+                    passwordStrengthBar.classList.add('strength-medium');
+                } else if (strength <= 75) {
+                    passwordStrengthBar.classList.add('strength-strong');
+                } else {
+                    passwordStrengthBar.classList.add('strength-very-strong');
+                }
+            }
+            
+            // Fungsi validasi persyaratan password
+            function validatePasswordRequirements(password) {
+                const lengthReq = document.getElementById('length-req');
+                const lowercaseReq = document.getElementById('lowercase-req');
+                const uppercaseReq = document.getElementById('uppercase-req');
+                const numberReq = document.getElementById('number-req');
+                
+                // Panjang
+                if (password.length >= 8) {
+                    lengthReq.classList.add('met');
+                } else {
+                    lengthReq.classList.remove('met');
+                }
+                
+                // Huruf kecil
+                if (/[a-z]/.test(password)) {
+                    lowercaseReq.classList.add('met');
+                } else {
+                    lowercaseReq.classList.remove('met');
+                }
+                
+                // Huruf besar
+                if (/[A-Z]/.test(password)) {
+                    uppercaseReq.classList.add('met');
+                } else {
+                    uppercaseReq.classList.remove('met');
+                }
+                
+                // Angka
+                if (/[0-9]/.test(password)) {
+                    numberReq.classList.add('met');
+                } else {
+                    numberReq.classList.remove('met');
+                }
+            }
+            
+            // Fungsi validasi kecocokan password
+            function validatePasswordMatch() {
+                const password = passwordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+                const confirmPasswordError = document.getElementById('confirm-password-error');
+                
+                if (confirmPassword && password !== confirmPassword) {
+                    confirmPasswordError.style.display = 'block';
+                    return false;
+                } else {
+                    confirmPasswordError.style.display = 'none';
+                    return true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

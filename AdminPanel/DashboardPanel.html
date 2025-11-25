@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style_admin.css">
+</head>
+<body id="adminDashboardBody">
+    <div class="admin-header">
+        <h1>JITUTOTO - Admin Panel</h1>
+        <a href="#" onclick="adminLogout()">Logout</a>
+    </div>
+    <div class="admin-dashboard">
+        <div class="sidebar">
+            <a href="DashboardPanel.html">Overview User</a>
+            <a href="Deposit.html">Deposit (Tambah Saldo)</a>
+            <a href="Withdraw.html">Withdraw (Kurangi Saldo)</a>
+        </div>
+        <div class="content">
+            <div class="content-box">
+                <h2>Data Pengguna Terdaftar (Simulasi)</h2>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Saldo (Simulasi)</th>
+                            <th>Tgl Daftar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/script_panel.js"></script>
+</body>
+</html>
