@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile User - Toto77</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="profileBody" onload="loadDashboard()">
+     <div class="header">
+        <span class="header-info">Hi, <span id="currentUsername"></span> | TOTAL SALDO: <span id="totalSaldo" style="color: #ffcc00;">IDR 0</span></span>
+        
+        <div class="dashboard-auth-links">
+            <a href="#" class="header-link memo-btn">Memo</a>
+            <a href="profile.html" class="header-link profil-btn">Profil</a>
+            <a href="#" class="header-link transaksi-btn">Transaksi</a>
+            <a href="#" class="header-link bonus-btn">Bonus</a>
+            <a href="#" onclick="logout()" class="header-link keluar-btn">Keluar</a>
+        </div>
+    </div>
+    
+    <div class="header-nav-toto77">
+        <div class="container">
+            <div class="navbar-nav-toto77">
+                <a class="nav-link-toto77" href="dashboard.html">🏠 Slot</a>
+                </div>
+        </div>
+    </div>
+
+    <div class="bg-roulette">
+        <div class="container">
+            <div class="profile-container">
+                <h2 class="profile-page-title">Profil</h2>
+                
+                <div class="profile-grid">
+                    <div class="profile-item profile-input-group">
+                        <label>Nama Pengguna</label>
+                        <p id="profileUsername" class="profile-text-display">Loading...</p>
+                    </div>
+                    <div class="profile-item">
+                         <label>Status Anggota</label>
+                        <p>NEW PLAYER</p>
+                    </div>
+                    <div class="profile-item">
+                         <label>E-mail</label>
+                        <input type="email" id="profileEmail" class="profile-input" placeholder="contoh@mail.com">
+                    </div>
+                    
+                    <div class="profile-item">
+                         <label>Nomor Kontak</label>
+                        <input type="text" id="profilePhone" class="profile-input" placeholder="+62 8XXXX">
+                    </div>
+                    <div class="profile-item">
+                        <label>Tanggal Lahir</label>
+                        <button class="btn-primary-action btn-profile-action">Tanggal Lahir Belum Diatur</button>
+                    </div>
+                    <div class="profile-item">
+                         <label>Referral ID</label>
+                        <p>MJ20QPN4</p>
+                        <button class="btn-primary-action btn-profile-action">Salin</button>
+                    </div>
+                    
+                    <div class="profile-item">
+                        <label>Rincian Bank</label>
+                        <button class="btn-primary-action btn-profile-action">Perlihatkan</button>
+                    </div>
+                    <div class="profile-item">
+                        <label>User Game ID</label>
+                        <button class="btn-primary-action btn-profile-action">Lihat ID</button>
+                    </div>
+                    <div class="profile-item">
+                         <label>Kata Sandi Lama</label>
+                        <input type="password" class="profile-input" placeholder="Kata Sandi Lama">
+                    </div>
+
+                    <div class="profile-group-password">
+                        <label>Kata Sandi Baru</label>
+                        <input type="password" class="profile-input" placeholder="Kata Sandi Baru">
+                        <small style="color: #aaa;">Sandi harus minimal 8 karakter.</small>
+                    </div>
+                    <div class="profile-group-password">
+                        <label>Konfirmasi Kata Sandi</label>
+                        <input type="password" class="profile-input" placeholder="Konfirmasi Kata Sandi">
+                    </div>
+                    <div style="grid-column: span 1; display: flex; align-items: flex-end;">
+                        <button class="btn-submit" style="width: 100%;">Kirim</button>
+                    </div>
+                </div>
+
+                <div class="profile-info-footer">
+                    <p style="text-align: center;">SEMUA MEMBER WAJIB BERUSIA 18 TAHUN KEATAS UNTUK BERMAIN DI TOTO77.</p>
+                    <p style="text-align: center;">SEMUA MEMBER DIHARAPKAN MENJAGA KERAHASIAAN DATA AKUN DAN PASSWORDNYA.</p>
+                    <p style="text-align: center; margin-top: 10px;">DIATAS BERIKUT ADALAH DATA PRIBADI BOSSKU YANG KAMI JAMIN AMAN 100% KEAMANANNYA.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="withdrawModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeWithdrawModal()">&times;</span>
+            <h2>Formulir Withdraw</h2>
+            <form id="withdrawForm">
+                <div class="form-group">
+                    <label for="withdrawAmount">Jumlah Penarikan (Min IDR 50.000)</label>
+                    <input type="number" id="withdrawAmount" min="50000" required>
+                </div>
+                <div class="form-group">
+                    <label for="bankInfo">No Rekening Tujuan</label>
+                    <input type="text" id="bankInfo" placeholder="Simulasi: BCA 1234567 A/N Nama Anda" required>
+                </div>
+                <button type="submit" class="btn-submit">Kirim Form Withdraw</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Memuat data profil saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('activeUser');
+            if (username) {
+                const userData = JSON.parse(localStorage.getItem(username));
+                if (userData) {
+                    document.getElementById('profileUsername').textContent = username;
+                    document.getElementById('profileEmail').value = userData.email || '';
+                    document.getElementById('profilePhone').value = userData.phone || '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
